@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>Генерим наиболее посещаемые места</h2>
-
-    <h3>Загрузка файла для анализа</h3>
+    <h2>Gmaps-markers</h2>
+    <p>
+        Данное приложение анализирует файл с историей местоположений Google
+        и генерирует карту с наиболее частопосещаемыми местами.
+    </p>
+    <h3>Загрузите файл 'history.json' для анализа</h3>
     <form method="post" action="/upload" enctype="multipart/form-data">
         <input type="file" name="the_file">
+        <br>
         <input type="submit" value="Проанализировать файл">
     </form>
 
