@@ -6,7 +6,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash
 app = Flask(__name__)
 
 messages = ['']
-ALLOWED_EXTENSIONS = {'txt', 'csv', 'json'}
+ALLOWED_EXTENSIONS = {'json'}
 
 
 def allowed_file(filename):
@@ -17,35 +17,12 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET'])
 def main_page():
-    data = [str(i) for i in range(10)]
-    fn, ln = '<имя>', '<фамилия>'
-
-    if 'name' in request.args:
-        fn = request.args['name']
-    if 'lastname' in request.args:
-        ln = request.args['lastname']
-
-    page = render_template('index.html', name=fn, lastname=ln, data=data,
-                           flag=True)
-    return page
-
-
-@app.route('/data/', methods=['GET'])
-def data_page():
-    return render_template('data.html', messages=messages)
+    return render_template('fupload.html')
 
 
 @app.route('/fupload/', methods=['GET'])
 def upload_page():
     return render_template('fupload.html')
-
-
-@app.route('/add_message', methods=['POST'])
-def add_message():
-    text = request.form['text']
-    messages.append(text)
-
-    return redirect(url_for('data_page'))
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -67,12 +44,6 @@ def upload_file():
             flash('ololo')
 
     return redirect(url_for('upload_file'))
-
-
-@app.route('/motivation/')
-def get_motivation_text():
-    text = random.choice(['Тi хуй', 'Тi собака', 'Здохни!111'])
-    return render_template('motivation.html', motiv_text=text)
 
 
 if __name__ == '__main__':

@@ -82,16 +82,7 @@ def analyse_map(file):
 
         return map
 
-    #getmap(ddy).save('666.html')
-
-    # Рисуем карту своих самых частых местонахождений
-    #getmap(ddy, radius=5, color='red', opacity=0.05, zoom=10)
-
     # Вариант с кластерами
     #getmap(ddy, radius=5, color='red', opacity=0.05, zoom=10, cluster=True)
 
     return getmap(ddy)
-
-
-# with open('D:/OneDrive/Python/google-maps-history/history500.json') as f:
-#    analyse_map(f)
