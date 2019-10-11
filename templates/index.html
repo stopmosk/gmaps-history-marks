@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>Hello, {{ name }} {{ lastname }}!</h2>
+
+    <ul>
+        {% for i in data %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if flag %}
+        <p>Флаг включен</p>
+    {% endif %}
+
+{% endblock %}

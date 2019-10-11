@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>Это датапейдж :)</h2>
+
+    <h3>Добавление сообщений</h3>
+    <form method="post" action="/add_message">
+        <input type="text" name="text">
+        <button type="submit">Добавить сообщение</button>
+    </form>
+
+    <h3>Добавленные сообщения:</h3>
+    {% for m in messages %}
+        <div>Предыдущее сообщение: {{ m }}</div>
+    {% endfor %}
+
+{% endblock %}
